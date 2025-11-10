@@ -1,28 +1,78 @@
-# Contrato: init(vals), step() -> {"a": int, "b": int, "swap": bool, "done": bool}
+# Contrato: init(vals), step() -> {"a": int|None, "b": int|None, "swap": bool, "done": bool}
 
+# Variables globales para mantener el estado del algoritmo
 items = []
 n = 0
-i = 0          # cabeza de la parte no ordenada
-j = 0          # cursor que recorre y busca el mínimo
-min_idx = 0    # índice del mínimo de la pasada actual
-fase = "buscar"  # "buscar" | "swap"
+i = 0          # Índice del inicio de la parte no ordenada (donde se coloca el mínimo)
+j = 0          # Cursor que recorre la parte no ordenada
+min_idx = 0    # Índice del mínimo encontrado
+fase = "buscar"  # Puede ser "buscar" o "swap"
 
 def init(vals):
+    """Inicializa el estado del algoritmo Selection Sort paso a paso."""
     global items, n, i, j, min_idx, fase
     items = list(vals)
     n = len(items)
     i = 0
+
+    # Si la lista es muy corta, marcamos como terminada
+    if n <= 1:
+        return {"a": None, "b": None, "swap": False, "done": True}
+
     j = i + 1
     min_idx = i
     fase = "buscar"
 
+    return {"a": i, "b": j, "swap": False, "done": False}
+
+
 def step():
-    # TODO:
-    # - Fase "buscar": comparar j con min_idx, actualizar min_idx, avanzar j.
-    #   Devolver {"a": min_idx, "b": j_actual, "swap": False, "done": False}.
-    #   Al terminar el barrido, pasar a fase "swap".
-    # - Fase "swap": si min_idx != i, hacer ese único swap y devolverlo.
-    #   Luego avanzar i, reiniciar j=i+1 y min_idx=i, volver a "buscar".
-    #
-    # Cuando i llegue al final, devolvé {"done": True}.
-    return {"done": True}
+    """Ejecuta un paso del algoritmo Selection Sort."""
+    global items, n, i, j, min_idx, fase
+
+    # --- 1. Chequeo de finalización ---
+    if i >= n - 1:
+        return {"a": None, "b": None, "swap": False, "done": True}
+
+    # --- 2. FASE DE BÚSQUEDA ---
+    if fase == "buscar":
+        if j < n:
+            j_actual = j
+
+            # Comparar items[j] con items[min_idx]
+            if items[j] < items[min_idx]:
+                min_idx = j  # Nuevo mínimo encontrado
+
+            # Avanzar el cursor
+            j += 1
+
+            # Devolver el paso actual de comparación
+            return {"a": min_idx, "b": j_actual, "swap": False, "done": False}
+
+        else:
+            # Se terminó el barrido → pasar a la fase de swap
+            fase = "swap"
+            return step()  # Ejecutar inmediatamente la fase de swap
+
+    # --- 3. FASE DE SWAP ---
+    elif fase == "swap":
+        a = i
+        b = min_idx
+        realizado_swap = False
+
+        # Si el mínimo no está donde debería, intercambiamos
+        if i != min_idx:
+            items[a], items[b] = items[b], items[a]
+            realizado_swap = True
+
+        # Preparar el estado para la siguiente iteración
+        i += 1
+        j = i + 1
+        min_idx = i
+        fase = "buscar"
+
+        # Devolver el resultado del intercambio
+        return {"a": a, "b": b, "swap": realizado_swap, "done": False}
+
+    # Si llega aquí, algo inesperado ocurrió
+    return {"a": None, "b": None, "swap": False, "done": True}
