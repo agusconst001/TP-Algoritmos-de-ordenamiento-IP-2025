@@ -1,11 +1,10 @@
 # Contrato: init(vals), step() -> {"a": int|None, "b": int|None, "swap": bool, "done": bool}
 
-# Variables globales para mantener el estado del algoritmo
 items = []
 n = 0
-i = 0          # Índice del inicio de la parte no ordenada (donde se coloca el mínimo)
-j = 0          # Cursor que recorre la parte no ordenada
-min_idx = 0    # Índice del mínimo encontrado
+i = 0          
+j = 0          
+min_idx = 0    
 fase = "buscar"  # Puede ser "buscar" o "swap"
 
 def init(vals):
@@ -15,7 +14,7 @@ def init(vals):
     n = len(items)
     i = 0
 
-    # Si la lista es muy corta, marcamos como terminada
+
     if n <= 1:
         return {"a": None, "b": None, "swap": False, "done": True}
 
