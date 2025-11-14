@@ -33,12 +33,10 @@ def step():
 
     # --- 3. Realizar comparación y posible intercambio ---
     if a < max_j:
-
         if items[a] > items[b]:
             # Realizar el intercambio (swap)
             items[a], items[b] = items[b], items[a]
             swap = True
-        
         # Avanzar el puntero j para la siguiente comparación
         j += 1
         
@@ -47,10 +45,9 @@ def step():
 
     # --- 5. Fin de la pasada (j alcanzó el final del segmento no ordenado) ---
     else: # j == max_j
-
         i += 1
         j = 0
-        
+    
         # En el último paso de una pasada, solo avanzamos i y j. 
         # La UI necesita una comparación para mostrar, pero para ser estrictos con un micro-paso,
         # podríamos devolver el estado de i y j como indicadores del fin del loop interno.
