@@ -20,3 +20,146 @@
     #view{width:100%;height:64vh;display:block;border-radius:10px;background:radial-gradient(1000px 500px at 20% -10%,rgba(34,211,238,.08),transparent 70%),radial-gradient(900px 500px at 80% 110%,rgba(167,139,250,.08),transparent 70%),#0a0f1d}
     .footer{color:var(--muted);font-size:12px;text-align:center;padding:8px 0}
     .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#0b1220;border:1px solid #334155;padding:2px 6px;border-radius:6px}
+
+/* 🌟 Estilos exclusivos del index.html */
+
+#menu-body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("img/test-pikachu.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🔮 Capa oscura para mejor contraste */
+#menu-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: brightness(0.8) blur(4px);
+  z-index: 0;
+}
+
+/* 📦 Contenedor principal */
+#menu-container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 1s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#menu-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 45px rgba(255, 255, 255, 0.15);
+}
+
+/* ✨ Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🧠 Título */
+#menu-titulo {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 45px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+/* ✨ Línea decorativa debajo del título */
+#menu-titulo::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #1d3557, #457b9d, #a8dadc);
+  margin: 12px auto 0;
+  border-radius: 10px;
+}
+
+/* 🔘 Contenedor de botones */
+#menu-botones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+/* 🎛️ Botones principales */
+#btn-proyecto,
+#btn-info {
+  width: 220px;
+  text-decoration: none;
+  padding: 14px 0;
+  border-radius: 10px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌊 Efecto de brillo al pasar el mouse */
+#btn-proyecto::before,
+#btn-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+}
+
+#btn-proyecto:hover::before,
+#btn-info:hover::before {
+  left: 125%;
+}
+
+/* 🔹 Botón Proyecto */
+#btn-proyecto {
+  background-color: #100e38;
+  box-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+}
+
+#btn-proyecto:hover {
+  background-color: #457b9d;
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(69, 123, 157, 0.6);
+}
+
+/* 🔸 Botón Info */
+#btn-info {
+  background-color: #100e38;
+  box-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+}
+
+#btn-info:hover {
+  background-color: #ff6b6b;
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(255, 107, 107, 0.6);
+}
+
+

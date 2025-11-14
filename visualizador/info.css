@@ -1,0 +1,137 @@
+
+#info-body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/visualizador/img/test-pikachu.png");
+  background-color: #0d1c50d0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: brightness(0.8);
+  color: #fff;
+}
+
+/* 📦 Contenedor principal */
+#info-container {
+  background-color: rgba(0, 0, 0, 0.697);
+  padding: 50px 70px;
+  border-radius: 20px;
+  box-shadow: 0 6px 35px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  max-width: 800px;
+  width: 90%;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* ✨ Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🧠 Título principal */
+#info-titulo {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 35px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  color: #f1faee;
+}
+
+/* 📘 Secciones */
+#info-datos h2,
+#info-consigna h2,
+#info-algoritmos h2 {
+  color: #f1faee;
+  border-bottom: 2px solid #a8dadc;
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+#info-datos p,
+#info-consigna p {
+  color: #f8f9fa;
+  line-height: 1.7;
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+/* ⚙️ Sección de algoritmos (lista + imagen) */
+#info-algoritmos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
+}
+
+#info-algoritmos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 55%;
+}
+
+#info-algoritmos li {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 10px 0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+#info-algoritmos li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+/* 🖼️ Imagen al lado derecho */
+#info-algoritmos img {
+  flex: 1 1 35%;
+  max-width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* 🔙 Botón volver */
+#info-volver {
+  margin-top: 40px;
+}
+
+#btn-volver {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #1d3557;
+  color: white;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#btn-volver:hover {
+  background-color: #457b9d;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+#btn-volver:active {
+  transform: scale(0.98);
+}
