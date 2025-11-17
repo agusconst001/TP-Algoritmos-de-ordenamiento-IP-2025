@@ -1,18 +1,18 @@
 # Contrato: init(vals), step() -> {"a": int, "b": int, "swap": bool, "done": bool}
 
 items = []
-n = 0 #cantidad de elementos
-i = 0 #pasada actual
-j = 0  #indice que recorre y compara elementos
+n = 0 
+i = 0 
+j = 0  
 
 def init(vals):
     global items, n, i, j
     items = list(vals)
     n = len(items) 
-    i = 0
-    j = 0
+    i = 0 # empieza en la primera pasada
+    j = 0 # empieza comparando desde el índice 0
     
-    if n <= 1: #si la lista tiene 0 o 1 elemento, ya está ordenada
+    if n <= 1: # si la lista tiene 0 o 1 elemento, ya está ordenada
         i = n 
 
 

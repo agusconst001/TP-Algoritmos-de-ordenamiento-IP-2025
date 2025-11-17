@@ -6,7 +6,6 @@ i = 0
 j = None   
 
 def init(vals):
-    """Inicializa el estado del Insertion Sort."""
     global items, n, i, j
     items = list(vals)
     n = len(items)
@@ -14,10 +13,10 @@ def init(vals):
     j = None
 
 def step():
-    """Ejecuta un único micro-paso del Insertion Sort."""
     global items, n, i, j
     if i >= n:
         return {"done": True}
+    
     if j is None:
         j = i 
         if j > 0:
@@ -25,6 +24,7 @@ def step():
         else:
             i += 1 
             return step()
+        
     if j > 0 and items[j - 1] > items[j]:
         a = j - 1
         b = j
